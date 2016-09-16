@@ -30,6 +30,10 @@ Eagle Resources for the PiBot
 
 Heres a good guide here: http://dangerousprototypes.com/docs/Cadsoft_Eagle_tips_and_tricks
 
+Also here: 
+http://www.lucidarme.me/?p=2363
+
+
 When making a new symbol, to place a bar over a signal name use the "!" character and a bar will be placed over the following characters. (ie. !EN) To terminate a bar in the middle of a signal name use another "!". (ie. !WR!/RD)
 
 
