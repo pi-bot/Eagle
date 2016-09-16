@@ -24,3 +24,11 @@ Eagle Resources for the PiBot
 - M = MOSFET
 - J = jack (connector)
 - P = plug
+
+
+##More Tips
+
+When making a new symbol, to place a bar over a signal name use the "!" character and a bar will be placed over the following characters. (ie. !EN) To terminate a bar in the middle of a signal name use another "!". (ie. !WR!/RD)
+
+
+Always do the schematic and symbols in Imperial units because most libraries are in Imperial units. Do the board and packages in either Imperial or Metric depending on whats most appropropriate for the footprint.
