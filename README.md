@@ -38,3 +38,8 @@ When making a new symbol, to place a bar over a signal name use the "!" characte
 
 
 Always do the schematic and symbols in Imperial units because most libraries are in Imperial units. Do the board and packages in either Imperial or Metric depending on whats most appropropriate for the footprint.
+
+
+## pin direction
+Use **SUPPLY**  only for symbols meant to indicate a supply net in aschematic, like for a ground symbol.  Use **POWER** for power and ground pins of a IC. 
+https://www.element14.com/community/thread/15253/l/pin-direction?displayFullThread=true
