@@ -81,14 +81,11 @@ We'll design the app so it takes just one argument: the name of the character ic
 
 
 ```
-libName = ARGV.first
-charList = open(libName)
-puts "Here's an output of the #{Libname} char list:"
+libName = ARGV.first #corresponds with directory in root
+charList = open("#{libName}/chars.txt")
+puts "Here's an output of the #{libName} char list:"
 print charList.read
 puts "Confirm the file contains the geometry wanted to build your package library?"
-
-
-makeFolder = 
 
 
 File.readlines('test.txt').map do |line|
