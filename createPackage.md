@@ -9,9 +9,30 @@ The character list for the PiBot board represent the input and out put pins for 
 ```
 1
 2
-3
+~3
 4
-5
+~5
+~6
+7
+8
+~9
+~10
+~11
+12
+13
+22
+23
+24
+25
+26
+27
+28
+32
+14
+15
+16
+17
+19
 ```
 
 We put our list is a **CHARS-[libName].txt** file.  This list is then a source variable to drive the whole system. **CHARS-** is given as a convention for the generated Eagle package Library.  The completed Eagle Library will therefore be named: **CHARS-[libName].lbr **.  For our example project we'll call our character list **CHARS-PIBOT.txt** that will be used to create an Eagle **CHARS-PIBOT.lbr** package library. 
