@@ -30,13 +30,21 @@ The assets that we have now are:
 - **config.txt** a config file containing the font, render size and anchor point for each character. It is not possible to complete Typesetting automatially.  The size and positioning of poloygons depends on specific characters.  The algorythym is set up for a user to do this in an interface and to tweak parameters untill the desired result is obtained. Once each character is **Typeset** the specific scale, font and anchor point is recorded and saved in this config file.  
 - **Lib-template.xml** This is a template used to generate the Eagle Library. Library Eagle files are pretty easy to follow **XML** files with the package data contained in the middle. This is a standard template that will be converted by our Ruby script to build the complete CHAR-PIBOT.lbr file.
 
-###Typical List
+###Typical Poygon Point List
 
 ```
-1.31423434, -2.34545345435, 0
-0.53424344, -2.93434234234, 0
-3.23232322, 0.343443435343, 0
-etc...
+{-0.302921,-0.515019,0.0}
+{-0.503542,-0.444211,0.0}
+{-0.615654,-0.261292,0.0}
+{-0.651058,-0.037069,0.0}
+{-0.615654,0.193056,0.0}
+{-0.503542,0.375975,0.0}
+{-0.302921,0.446782,0.0}
+{-0.143604,0.405478,0.0}
+{-0.037393,0.293366,0.0}
+{0.021613,0.134049,0.0}
+{0.039315,-0.037069,0.0}
+{0.021613,-0.202286,0.0}
 ```
 
 ###File Locations
