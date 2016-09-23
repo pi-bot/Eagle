@@ -39,5 +39,30 @@ The assets that we have now are:
 etc...
 ```
 
+###File Locations
+All files need to be located in a created **icons** directory nested in the Eagle cam folder. For me this **pwd** (present working directory) is:
+```
+/Users/Agilimac/Dropbox/Eagle/cam/icons
+```
+In the root of this folder we'll place all the source directories (one per Eagle library) as well as the Ruby **buildEagleIconsLib.rb** script. 
 
-Questions: How to build the file in Ruby.  
+##Building the Ruby app
+
+We'll design the app so it takes just one argument: the name of the character icon library. The script will then use this to locate all the required make files, make the Eagle library and place the library in the **Eagle/lib** folder ready for use.   It takes just one parameter the URL of the directory to build the library from.
+
+
+```
+libName = ARGV.first
+charList = open(libName)
+puts "Here's an output of the #{Libname} char list:"
+print charList.read
+puts "Confirm the file contains the geometry wanted to build your package library?"
+
+
+makeFolder = 
+
+
+File.readlines('test.txt').map do |line|
+  line.split.map(&:to_i)
+end
+```
