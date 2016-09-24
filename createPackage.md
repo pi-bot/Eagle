@@ -125,6 +125,42 @@ Each file contains:
 - **brocken** true/false value whether the geometry for the icon was broken up to remove holes.
 - **pointSets** the control points (verteces in eagle) used to create each polygon.  
  
+An example file for two characters would then be:
+```
+ {
+    "char": "1",
+    "scale": "0.95",
+    "age": 25,
+    "offset": {
+        "x": -0.12,
+        "y": -.15
+    },
+    "num_polygons": 3,
+    "brocken": true,
+    "pointSets": {
+      [
+        [-0.302921,-0.515019]
+        [-0.503542,-0.444211]
+        [-0.615654,-0.261292]
+        [-0.651058,-0.037069]
+      ],
+      [
+        [-0.615654,0.193056]
+        [-0.503542,0.375975]
+        [-0.302921,0.446782]
+      ],  
+      [
+        [-0.143604,0.405478]
+        [-0.037393,0.293366]
+        [0.021613,0.134049]
+        [0.039315,-0.037069]
+        [0.021613,-0.202286] 
+      ]
+      }
+}
+```
+
+
 
 
 ##Icon Geometry Engine
