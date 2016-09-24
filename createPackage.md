@@ -1,8 +1,99 @@
 #Automatically creating packages
 
 This will be used to collect code and think through solution initially. I'll then tiddy it up and make it clearer whats its all about.  
+My goal is to create an application that genates an icon library for use in Eagle.  By 'icons' I mean character symbols that will be used for markers and decorations in my PCB design.  The app is made up of two elements:
+- **Aotomated Icon Geometry Engine**.  This will essentially take a list of the characters I want rendered in Eagle and will generate all the geometry for these icons. 
+- **Eagle Library Builder** Using a script I then take all the data output from the Icon Geometry Engine and use this to build an Eagle Library.
 
-The question is how to create a script/system that takes a list characters and returns a package library of the characters in eagle scaled correctly and in a font of your choice.  This involves the character list.
+### App Overview
+I'll place my app in Eagle's cam folder in a directory called **icons**  (Eagle/cam/icons).  CAM - Computer Aided Manufacture).
+The App consists of: 
+- **buildEagleIconsLib.rb**. This is is the ruby script that will be used to build the Eagle library. One of many scripting languages could have been used though I chose ruby as its a language I'm learning and I wnated to improve in.
+- **Lib-template.xml** This is a template used to generate the Eagle Libraries. Eagle Library files are pretty easy to follow **XML** files with a libraries package data contained in the middle. This is a standard template that will be converted by our Ruby script to build the completed icon libraries.
+
+For each icon set there will then be two key files: 
+
+- **[iconName]-config.json** e.g. for the pibot icons this will be **pibot-config.json**. This will contain all the information required for the geometry engine to build the geometry of our icons. 
+- **[iconName]-data.json** e.g. for the pibot icons this will be **pibot-data.json**. This will be all the geometry and other information required to build the eagle library from.  
+
+After the **geometry engine** and the **buildEagleIconsLib** script have done their work the generated eagle Library will be placed in the Eagle/lbr folder ready for use with eagle. Now I'll go into greater details with each element of app as well as it's data files. 
+
+##JSON files for data tranfer
+JSON (Javascript Object Notation) has been chosen as the ideal transfer file for the app as it is lightweight, clearly structured, readable and easily used by each app element. The Jason syntax looks like: 
+```
+ [ { line object 1 } , { line object 2 } ] 
+ ```
+ Each line object comprises of { key : value } pairs, where **key** is the variable and **value** is the data assigned to the variable for the object.  To illustrate here is an example JSON file:
+ 
+ ```
+ {
+    "firstName": "John",
+    "lastName": "Smith",
+    "age": 25,
+    "address": {
+        "streetAddress": "21 2nd Street",
+        "city": "New York",
+        "state": "NY",
+        "postalCode": 10021
+    },
+    "phoneNumbers": [
+        {
+            "type": "home",
+            "number": "212 555-1234"
+        },
+        {
+            "type": "fax",
+            "number": "646 555-4567"
+        }
+    ]
+}
+```
+ 
+ 
+
+
+
+
+
+- 
+
+- This includes: -
+- **chars** the character set that the icons represent. e.g. for the pibot.pcb this is : 1, 2, ~3, 4, ~5, ~6, 7, 8, ~9 ,~10 ,~11 ,12 ,13 ,22 ,23 ,24 ,25 ,26 ,27 ,28 ,32 ,14 ,15 ,16 ,17 ,19.
+- **font** the font used render the chars (e.g. VAG rounded)
+- **size** the default size in mm that the font is rendered in.
+- **bold** true/false value whether the chars are to be rendered as **bold** or not.
+- **italic** true/false value whether the chars are to be rendered as *italics* or not.
+- **anchor** the default anchor point for each charset
+- **resolution** the number of decimal places to store geometry data for the char set. Default is 3. 
+
+
+
+
+The assets that we have now are:
+- **characters.txt** : List of characters to be converted to graphic icons in Eagle.   
+- **Points Lists for each character**: E.G. the character **16** generates 3 polygons who's control points exist in 16-1.pts, 16-2.pts, and 16-3.pts list files respectively. Our Grasshopper algorythm generates points lists for all characters in the characters.txt list.
+- **config.txt** a config file containing the font, render size and anchor point for each character. It is not possible to complete Typesetting automatially.  The size and positioning of poloygons depends on specific characters.  The algorythym is set up for a user to do this in an interface and to tweak parameters untill the desired result is obtained. Once each character is **Typeset** the specific scale, font and anchor point is recorded and saved in this config file.  
+- **Lib-template.xml** This is a template used to generate the Eagle Library. Library Eagle files are pretty easy to follow **XML** files with the package data contained in the middle. This is a standard template that will be converted by our Ruby script to build the complete CHAR-PIBOT.lbr file.
+
+
+
+
+
+
+##Icon Geometry Engine
+
+
+
+
+
+- **Grasshopper Polygon Engine**.  Grasshopper is a programming and parametric modelling interface for the *Rhino* CAD software. Rhino is great for generating vector graphics and Grasshopper is a truly awesome plugin that allows you to visually automate anything without needing to know or write programming code.  We'll create visual (blockly) system to automatically take our character list and generate the polygon geometry required for all our icons.  
+- **Ruby** A scripting launguage used to take the control point data from the CAD program and build the package library in Eagle.  Most scripting launguages could have been used for this.  I chose Ruby as it is lightweight and elegant and I am learning it at the moment!
+
+
+
+
+
+takes a list characters and returns a package library of the characters in eagle scaled correctly and in a font of your choice.  This involves the character list.
 
 ##Character List 
 The character list for the PiBot board represent the input and out put pins for the board.
