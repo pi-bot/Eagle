@@ -20,6 +20,8 @@ x = ptCoord[0]
 y = ptCoord[1]
 # we'll ingnore the z
 
+print "x: %.3f,y: %.3f"  %[x,y]  # using python string formattters
+
 ```
 
 
