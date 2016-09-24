@@ -99,10 +99,10 @@ JSON (Javascript Object Notation) has been chosen as the ideal transfer file for
 
 
 
+### [iconName]-config.json in detail
 
-- 
+A complete config file for creating the required geometric data for the icon library. Each file contains:
 
-- This includes: -
 - **chars** the character set that the icons represent. e.g. for the pibot.pcb this is : 1, 2, ~3, 4, ~5, ~6, 7, 8, ~9 ,~10 ,~11 ,12 ,13 ,22 ,23 ,24 ,25 ,26 ,27 ,28 ,32 ,14 ,15 ,16 ,17 ,19.
 - **font** the font used render the chars (e.g. VAG rounded)
 - **size** the default size in mm that the font is rendered in.
@@ -112,25 +112,22 @@ JSON (Javascript Object Notation) has been chosen as the ideal transfer file for
 - **resolution** the number of decimal places to store geometry data for the char set. Default is 3. 
 
 
+### [iconName]-data.json in detail
 
+A complete export file containing everything required to build an Icon package library for each icon set. It is two levels deep 
+At the top (library) level data given is
+Each file contains:
 
-The assets that we have now are:
-- **characters.txt** : List of characters to be converted to graphic icons in Eagle.   
-- **Points Lists for each character**: E.G. the character **16** generates 3 polygons who's control points exist in 16-1.pts, 16-2.pts, and 16-3.pts list files respectively. Our Grasshopper algorythm generates points lists for all characters in the characters.txt list.
-- **config.txt** a config file containing the font, render size and anchor point for each character. It is not possible to complete Typesetting automatially.  The size and positioning of poloygons depends on specific characters.  The algorythym is set up for a user to do this in an interface and to tweak parameters untill the desired result is obtained. Once each character is **Typeset** the specific scale, font and anchor point is recorded and saved in this config file.  
-- **Lib-template.xml** This is a template used to generate the Eagle Library. Library Eagle files are pretty easy to follow **XML** files with the package data contained in the middle. This is a standard template that will be converted by our Ruby script to build the complete CHAR-PIBOT.lbr file.
-
-
-
-
+- **char** the character that the icons represent. e.g.
+- **scale** the scale factor used to center/normalise the character icon. Used with the charsets **size** parameter
+- **offset** an offset vector(difference in x and y) used to normalise/center the icon character. (used in combination with **scale**
+- **num_polygons** number of seperate polygons used to represent the icon. (there will be a data set for each)
+- **brocken** true/false value whether the geometry for the icon was broken up to remove holes.
+- **pointSets** the control points (verteces in eagle) used to create each polygon.  
+ 
 
 
 ##Icon Geometry Engine
-
-
-
-
-
 - **Grasshopper Polygon Engine**.  Grasshopper is a programming and parametric modelling interface for the *Rhino* CAD software. Rhino is great for generating vector graphics and Grasshopper is a truly awesome plugin that allows you to visually automate anything without needing to know or write programming code.  We'll create visual (blockly) system to automatically take our character list and generate the polygon geometry required for all our icons.  
 - **Ruby** A scripting launguage used to take the control point data from the CAD program and build the package library in Eagle.  Most scripting launguages could have been used for this.  I chose Ruby as it is lightweight and elegant and I am learning it at the moment!
 
