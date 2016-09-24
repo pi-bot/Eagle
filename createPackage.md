@@ -94,9 +94,8 @@ JSON (Javascript Object Notation) has been chosen as the ideal transfer file for
 }
 ```
  
- 
 
-
+[json_syntax] (http://www.w3schools.com/json/json_syntax.asp)
 
 
 ### [iconName]-config.json in detail
