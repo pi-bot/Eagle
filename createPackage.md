@@ -4,21 +4,51 @@ Exposed Printed Circuit Board products are becoming ever more jazzy in their vis
 
 I did find various blogs and pointers on the subject however I could not get them working well enough for my set up of needs.  I rolled up my sleaves and I've come up with a solution I'm happy with.
 
-Graphic Limits
+###Graphic Limits
 Its good to have limits in any creative medium and as a starting point lets consider. 
 
-Wires or Polygons 
+####Wires or Polygons 
 Firstly Eagle has two graphical objects **wire** and **polygon**.  Wires are made up of straight lines with a thickness applied. Typically you see these marking the outlines of device packages on the white silskcreen layer of the PCB.  A typical wire is coded like this in Eagle:
 ```
 <wire x1="-8.89" y1="-2.54" x2="-11.43" y2="5.08" width="0" layer="1"/>
 ```
+As well as its width and layer the required data for a wire is its start and end point. A polygon is a filled area that is made up of a closed polyline. In eagle this is coded as:
+```
+<polygon width="0" layer="1">
+<vertex x="16.51" y="-6.35"/>
+<vertex x="13.97" y="2.54"/>
+<vertex x="6.35" y="-3.81"/>
+<vertex x="5.08" y="-10.16"/>
+<vertex x="10.16" y="-8.89"/>
+<vertex x="12.7" y="-7.62"/>
+</polygon>
+```
+You  can see that the basic units of Eagle polygons are verteces that represent the polygons connection points.  
+
+#### Representing Curves 
+With enough verteces and lines in Eagle you can imagine that it it will be possible to creat pretty much any kind of vector graphic.  This circle for example is actually a polygon of 36 sides and at this level of resolution you can see that we can achieve **good enough** results to represent anything.  The one caveat that needs a workaround though is to have the ability to have holes in polygons. This limitation is more serious though there are work arounds. 
+
+###Making Holes
+Take the number 8.  It is possible to make this shape in Eagle however you need to split the polygons that do not contain any other polygon.  With the 8 we do this by making two polygons that touch.
+
+This guide assumes a working knowledge of Eagle, PCB design as well as  a basic understanding of vector graphics.
+
+Graphics are 
+To make graphics portable it makes sense to create them as library parts that is the established best practice. As graphics perform no electrical function they are packages that need no symbol counterpart. Pretty quickly you see that the device interface with the polygon and wire tool are appropriate for really making simple praphics. For complex shapes it makes sense to import the graphics from external sources.
+
+The two I've explored are DXF inport and . There are two ULPs for this.  For one reason or another I found all these methods did not work for my set up. (Eagle instances on Windows and Mac) . 
+
+
+Specifically what I wanted to create is a way of importing characters and icons from existing font sets and icon libraries.  I also wnated to find a way for automating this.  
 
 
 
-This will be used to collect code and think through solution initially. I'll then tiddy it up and make it clearer whats its all about.  
+##Creating the app
+
+  
 My goal is to create an application that genates an icon library for use in Eagle.  By 'icons' I mean character symbols that will be used for markers and decorations in my PCB design.  The app is made up of two elements:
 - **Aotomated Icon Geometry Engine**.  This will essentially take a list of the characters I want rendered in Eagle and will generate all the geometry for these icons. 
-- **Eagle Library Builder** Using a script I then take all the data output from the Icon Geometry Engine and use this to build an Eagle Library.
+- **Eagle Library Builder** This is a script that converts all the data output from the Icon Geometry Engine to build a valid Eagle Library - one for each icon set.
 
 ### App Overview
 I'll place my app in Eagle's cam folder in a directory called **icons**  (Eagle/cam/icons).  CAM - Computer Aided Manufacture).
