@@ -22,6 +22,10 @@ y = ptCoord[1]
 
 print "x: %.3f,y: %.3f"  %[x,y]  # using python string formattters
 
+# or to add to variables: 
+
+line =  "%.3f,%.3f"  %[x,y]  # using python string formattters
+
 ```
 
 
