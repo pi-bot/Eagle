@@ -1,0 +1,13 @@
+##Search box shortcuts
+
+Default slider 
+```
+4<20<25
+```
+Creates a slider from 4 to 25 with a default of 20.
+
+###notepad
+```
+"50"
+```
+Anytime you start with a double quote it'll open and put it in a notepad.
