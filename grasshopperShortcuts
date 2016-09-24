@@ -12,6 +12,6 @@ Creates a slider from 4 to 25 with a default of 20.
 ```
 Anytime you start with a double quote it'll open and put it in a notepad.
 
-- Intro into scripting in grasshopper in C+ [here](http://designalyze.com/course/intro-c-scripting-grasshopper)
-- Intro into scripting in grasshopper in **python** [here](http://designalyze.com/course/intro-scripting-python-rhino)
+- Intro into scripting in grasshopper in C+ [here] (http://designalyze.com/course/intro-c-scripting-grasshopper)
+- Intro into scripting in grasshopper in **python** [here] (http://designalyze.com/course/intro-scripting-python-rhino)
 
