@@ -129,8 +129,7 @@ An example file for two characters would then be:
  {
     "char": "1",
     "scale": "0.95",
-    "offset": {[-0.12,-0.15]}
-    },
+    "offset":[-0.12,-0.15],
     "num_polygons": 3,
     "brocken": true,
     "pointSets": [
