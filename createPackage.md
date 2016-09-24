@@ -1,4 +1,19 @@
-#Automatically creating packages
+#Automatically Creating Icon Libraries for use in Eagle
+
+Exposed Printed Circuit Board products are becoming ever more jazzy in their visual design and layout. Icons etched from the gold of the copper, multi-coloured silkscreen and brigntly colored PCB's are becoming more and more popular. I personally love graphics and with the PiBot board expposed I really wanted it to look just a good as it functions.  Being used to graphic design when I started designing PCB's I naturally wanted to control them graphically. Unsurprisingly this is not the focus of PCB design software and there innate graphica and layourt capabilities are mostly limited. There is only one font for example and no, in built way of importing graphics into silkscreens.
+
+I did find various blogs and pointers on the subject however I could not get them working well enough for my set up of needs.  I rolled up my sleaves and I've come up with a solution I'm happy with.
+
+Graphic Limits
+Its good to have limits in any creative medium and as a starting point lets consider. 
+
+Wires or Polygons 
+Firstly Eagle has two graphical objects **wire** and **polygon**.  Wires are made up of straight lines with a thickness applied. Typically you see these marking the outlines of device packages on the white silskcreen layer of the PCB.  A typical wire is coded like this in Eagle:
+```
+<wire x1="-8.89" y1="-2.54" x2="-11.43" y2="5.08" width="0" layer="1"/>
+```
+
+
 
 This will be used to collect code and think through solution initially. I'll then tiddy it up and make it clearer whats its all about.  
 My goal is to create an application that genates an icon library for use in Eagle.  By 'icons' I mean character symbols that will be used for markers and decorations in my PCB design.  The app is made up of two elements:
