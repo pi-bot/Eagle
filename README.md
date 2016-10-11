@@ -43,3 +43,13 @@ Always do the schematic and symbols in Imperial units because most libraries are
 ## pin direction
 Use **SUPPLY**  only for symbols meant to indicate a supply net in aschematic, like for a ground symbol.  Use **POWER** for power and ground pins of a IC. 
 https://www.element14.com/community/thread/15253/l/pin-direction?displayFullThread=true
+
+
+##Filling and unfilling board pours
+Clicking hte **ratsnest** butten will fillouot all pours on the pcbs ground or other planes. Its sometimes usefull to remove this to see better what is going on with the board.  This can be done with this command:
+```
+RIPUP @;
+```
+Another problem I faced was closing the sheets menu and getting it back.
+
+http://www.computeraideddesignguide.com/schematic-options-menus-eagle-pcb-tutorial/
