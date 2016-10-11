@@ -50,6 +50,7 @@ Clicking hte **ratsnest** butten will fillouot all pours on the pcbs ground or o
 ```
 RIPUP @;
 ```
-Another problem I faced was closing the sheets menu and getting it back.
-
+Another problem I faced was closing the sheets menu and getting it back. Here's a good guide to the userinterface.
 http://www.computeraideddesignguide.com/schematic-options-menus-eagle-pcb-tutorial/
+
+I found controls under **options>GUI options>Sheet tabs**
