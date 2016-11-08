@@ -60,9 +60,19 @@ The installation of Eagle comes with a large number of default libraries. Its no
 
 A common workflow when starting out is to first work on a project and then find or create parts to complete a project design. When I did this I found some parts on libraries online, a few from the default libraries and some parts I needed to make myself.  Once complete it then makes sense to consolodate the parts for a project in one library and there are useful **ULPs** for this.  
 
-####Half a solution available
-In **File>Export>Librairies** You can see a shortcut to a **ULP** that resaves all the devices for the open project into a single library. The problem is that all the devices in the project will still be linked to their original libraries. The **replace** tool can be used to replace a part with its new version in the new library however doing this manually for each device may be a big job.  Thankfully there is another **ULP** that can be used to automate the replacing of parts to the newly created library. In fact its best to use the altermative **ULP** from the outset and let it both generate the library and reassociate the devices. 
+### Half a solution available
+In **File>Export>Librairies** You can see a shortcut to a **ULP** that resaves all the devices for the open project into a single library. The problem is that all the devices in the project will still be linked to their original libraries. The **replace** tool can be used to replace a part with its new version in the new library however doing this manually for each device may be a big job. 
+
+###The Whole Solution
+
+Thankfully there is another **ULP** that can be used to automate the replacing of parts to the newly created library. In fact its best to use the altermative **ULP** from the outset and let it both generate the library and reassociate the devices. 
 
 The ULP is from Bob Starr and can be found [here](https://github.com/robertstarr/ulp_user/blob/master/exp-lbrs-replace.ulp)
 
 I recommend you download and use this over the default Eagle one!
+
+#### Using
+With your schematic open go to **File>Run ULP ...** then select the **exp-lbrs.ulp** and let it run.  As it runs as well as creating the library it creates a script:  **your-file-name-UpdatePartNumAttributes.scr** in the same folder as the schematic.  You can then run this to re-link all parts to the newly generated library. **sorted:)**
+
+
+
