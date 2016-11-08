@@ -72,7 +72,7 @@ The ULP is from Bob Starr and can be found [here](https://github.com/robertstarr
 I recommend you download and use this over the default Eagle one!
 
 #### Using
-With your schematic open go to **File>Run ULP ...** then select the **exp-lbrs.ulp** and let it run.  As it runs as well as creating the library it creates a script:  **your-file-name-UpdatePartNumAttributes.scr** in the same folder as the schematic.  You can then run this to re-link all parts to the newly generated library. **sorted:)**
+With your schematic open go to **File>Run ULP ...** then select the **export-lbrs-replace.ulp** and let it run.  As it runs as well as creating the library it creates a script:  **your-file-name-RelaceLibParts.scr** in the same folder as the schematic.  You can then run this to re-link all parts to the newly generated library. **sorted:)**
 
 
 
