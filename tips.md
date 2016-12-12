@@ -39,6 +39,18 @@ or for just the specific libray
 choose the library from menu->library->update
 ```
 
+##Special Symbols in Eagle 
+On Apple Mac USE THESE FOR ARDUINO AND RASPBERRY PI SYMBOLS.
+
+```
+ [option]+5 = ∞
+```
+and for Raspberry Pi
+```
+ [option]+p = π
+```
+
+
 
 
 
